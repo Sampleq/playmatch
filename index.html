@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match game</title>
+    <style>
+        button {
+            font-size: 2rem;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">Play!</button>
+    <br><br><br>
+    <button id="btn2">Play (tern) !</button>
+    <p id="p"></p>
+
+    <script>
+     btn.onclick = PlayBetOnScore;
+     btn2.onclick = PlayBetOnScoreTern;
+     
+    function PlayBetOnScore(){
+        // const a = prompt('set first team score');
+
+        // const b = prompt('set second team score');
+
+        const a = Math.floor(Math.random() * 10);
+
+        // alert('a = ' + a);
+
+        const b = Math.floor(Math.random() * 10);
+
+        // alert('give input to player');
+
+        const c = prompt('enter first team score');
+        const d = prompt('enter second team score');
+
+        if (c == a & d == b) {
+            alert('Score was ' + a + ' : ' + b + ' You win!!! Score is right.');
+            p.innerHTML = 'Score was ' + a + ' : ' + b + " You've bet " + c + " : " + d + ' You win!!! Score is right. you earn 2 points';
+        }
+        else if ((a == b & c == d) || (((a - b) > 0 & (c - d) > 0) || ((a - b) < 0 & (c - d) < 0))) {
+            alert('Score was ' + a + ' : ' + b + " You've bet on right final - you earn 1 point.");
+            p.innerHTML = 'Score was ' + a + ' : ' + b + " You've bet " + c + " : " + d + " - this is right final - you earn 1 point.";
+        }
+        // else if ( ((a-b) > 0 & (c-d) > 0) || ((a-b) < 0 & (c-d) < 0)  ) {
+        //     alert("You've bet on winner.");
+        //     p.innerHTML = "You've bet on winner, you earn 1 points";
+        // }
+        else {
+            alert('Score was ' + a + ' : ' + b + ' You lose!');
+            p.innerHTML = 'Score was ' + a + ' : ' + b + " You've bet " + c + " : " + d + ' You lose! No points!';
+        }
+    }
+
+    function PlayBetOnScoreTern(){
+
+        const a = Math.floor(Math.random() * 10);
+
+        const b = Math.floor(Math.random() * 10);
+
+        const c = prompt('enter first team score');
+        const d = prompt('enter second team score');
+
+        p.innerHTML = (c == a & d == b) ? 'Score was ' + a + ' : ' + b + " You've bet " + c + " : " + d + ' You win!!! Score is right. you earn 2 points' : p.innerHTML = ((a == b & c == d) || (((a - b) > 0 & (c - d) > 0) || ((a - b) < 0 & (c - d) < 0))) ? 'Score was ' + a + ' : ' + b + " You've bet " + c + " : " + d + " - this is right final - you earn 1 point." : 'Score was ' + a + ' : ' + b + " You've bet " + c + " : " + d + ' You lose! No points!';
+    }
+    </script>
+</body>
+
+</html>
